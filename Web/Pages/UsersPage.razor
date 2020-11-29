@@ -1,0 +1,13 @@
+﻿@page "/users"
+
+@if (_users is not null)
+{
+    <UsersPreviewComponent Users="_users" />
+}
+else
+{
+    <LoadingAnimation />
+}
+
+@code {
+}

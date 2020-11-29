@@ -1,0 +1,13 @@
+﻿@page "/albums"
+
+@if (_albums is not null)
+{
+    <AlbumsPreviewComponent Albums="_albums" OnClickByAlbum="@(album => ClickByAlbum(album))" />
+}
+else
+{
+    <LoadingAnimation />
+}
+
+@code {
+}

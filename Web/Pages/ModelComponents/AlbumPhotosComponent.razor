@@ -1,0 +1,35 @@
+﻿@if (Album is null)
+{
+    <div class="alert alert-danger">Album is null</div>
+}
+else if (_isRendered && _photos is not null)
+{
+    <div class="album-details">
+        <div class="album-details__header">
+            <div class="back-to-list">
+                <a href="/albums">&lt;</a>
+            </div>
+            <h3 class="album-details__title">@Album.Title</h3>
+        </div>
+        <div class="row album-details__body">
+            @if (_photos.Any())
+            {
+                @foreach (var photo in _photos)
+                {
+                    <div class="col-md-3 col-6 photo" title="@photo.Title">
+                        <div class="photo__img">
+                            <img src="@photo.Url" alt="@photo.Url">
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="empty-list">Any photo not found for the album</div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+}

@@ -1,0 +1,37 @@
+﻿@if (Albums is null)
+{
+    <div class="alert alert-danger">Album is null</div>
+}
+else if (_isRendered && _albumPhotos is not null)
+{
+    <div class="row albums">
+        @foreach (var album in Albums)
+        {
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 album" style="max-width: 18rem;" @onclick="@(e => ClickByAlbumHandler(album))">
+                <div class="album__content">
+                    <div class="row album__body preview-photos">
+                        @if (_albumPhotos.TryGetValue(album.Id, out var photos))
+                        {
+                            @foreach (var photo in photos)
+                            {
+                                <div class="col-4 preview-photos__photo">
+                                    <img src="@photo.ThumbnailUrl" alt="" class="w-100" />
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="album__title">
+                        @album.Title
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <LoadingAnimation />
+}
+
+@code {
+}

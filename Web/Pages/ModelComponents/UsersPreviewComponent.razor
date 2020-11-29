@@ -1,0 +1,41 @@
+﻿@if (Users is null)
+{
+    <div class="alert alert-danger">User is null</div>
+}
+else
+{
+    <div class="users">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th class="text-center">@nameof(User.Name)</th>
+                    <th class="text-center">@nameof(User.Email)</th>
+                    <th class="text-center">@nameof(User.Phone)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Users)
+                {
+                    <tr>
+                        <td>
+                            <p class="text-center">@user.Name</p>
+                        </td>
+                        <td>
+                            <p class="text-center">
+                                <a href="mailto:@user.Email">@user.Email</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p class="text-center">
+                                <a href="tel:@user.Phone">@user.Phone</a>
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+}

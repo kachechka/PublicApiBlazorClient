@@ -1,0 +1,13 @@
+﻿@page "/album/{Id:int}"
+
+@if (_isReandered)
+{
+    <AlbumPhotosComponent Album="_album" />
+}
+else
+{
+    <LoadingAnimation />
+}
+
+@code {
+}
